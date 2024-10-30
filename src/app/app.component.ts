@@ -25,12 +25,13 @@ export class AppComponent implements OnInit {
 
       { property: 'og:title', content: this.meta_brand },
       { property: 'og:description', content: this.meta_desc },
-      { property: 'og:image', content: `${this.meta_url}/og.jpeg` },
+      { property: 'og:image', content: `${this.meta_url}/favicon.png` },
+      { property: 'og:site_name', content: this.meta_brand },
 
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: this.meta_brand },
       { name: 'twitter:description', content: this.meta_desc },
-      { name: 'twitter:image', content: `${this.meta_url}/og.jpeg` },
+      { name: 'twitter:image', content: `${this.meta_url}/favicon.png` },
 
       { name: 'format-detection', content: 'telephone=no, address=no, email=no' },
 

@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit(): void {
-    // this.titleService.setTitle('Home - Degiam App');
-    // this.metaService.updateTag({ name: 'description', content: 'Welcome to the home page of Degiam App' });
+    this.titleService.setTitle('Degiam App');
+    this.metaService.updateTag({ name: 'description', content: 'Welcome to the home page of Degiam App' });
   }
 
   author = 'degiam';

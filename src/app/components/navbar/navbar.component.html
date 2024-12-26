@@ -1,0 +1,33 @@
+<header>
+  <nav class="max-w-4xl w-full mx-auto fixed max-md:bottom-6 md:top-4 left-0 right-0 z-[1]">
+    <ul class="flex justify-center gap-2 w-fit mx-auto bg-white/50 backdrop-blur-lg px-3 py-4 rounded-full shadow-xl text-sm">
+      <li>
+        <a
+          [routerLink]="'/'"
+          [ngClass]="{'active': isActive('/')}"
+          class="px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 [&.active]:text-white [&.active]:bg-cyan-500"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="'/about'"
+          [ngClass]="{'active': isActive('/about')}"
+          class="px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 [&.active]:text-white [&.active]:bg-cyan-500"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="'/chat'"
+          [ngClass]="{'active': isActive('/chat')}"
+          class="px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 [&.active]:text-white [&.active]:bg-cyan-500"
+        >
+          Chat
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

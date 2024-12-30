@@ -17,4 +17,5 @@ export class HomeComponent implements OnInit {
   }
 
   author = 'degiam';
+  robotImg = '/assets/img/robot.png';
 }

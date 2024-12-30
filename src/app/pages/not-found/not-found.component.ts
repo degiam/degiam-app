@@ -15,4 +15,6 @@ export class NotFoundComponent implements OnInit {
     this.titleService.setTitle('Page not found - Degiam App');
     this.metaService.updateTag({ name: 'description', content: 'Sorry, this page is not available.' });
   }
+
+  warningImg = '/assets/img/warning.png';
 }

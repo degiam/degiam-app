@@ -1,11 +1,11 @@
 <header>
   <nav class="max-w-4xl w-full mx-auto fixed max-md:bottom-6 md:top-4 left-0 right-0 z-[1]">
-    <ul class="flex justify-center gap-2 w-fit mx-auto bg-white/50 backdrop-blur-lg px-3 py-4 rounded-full shadow-xl text-sm">
+    <ul class="flex justify-center gap-2 w-fit mx-auto bg-white/50 dark:bg-slate-700/80 backdrop-blur-lg p-3 rounded-full shadow-xl text-sm">
       <li>
         <a
           [routerLink]="'/'"
           [ngClass]="{'active': isActive('/')}"
-          class="px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 [&.active]:text-white [&.active]:bg-cyan-500"
+          class="block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-600 [&.active]:pointer-events-none"
         >
           Home
         </a>
@@ -14,19 +14,28 @@
         <a
           [routerLink]="'/about'"
           [ngClass]="{'active': isActive('/about')}"
-          class="px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 [&.active]:text-white [&.active]:bg-cyan-500"
+          class="block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-600 [&.active]:pointer-events-none"
         >
           About
         </a>
       </li>
       <li>
         <a
-          [routerLink]="'/chat'"
-          [ngClass]="{'active': isActive('/chat')}"
-          class="px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 [&.active]:text-white [&.active]:bg-cyan-500"
+          [routerLink]="'/labs'"
+          [ngClass]="{'active': isActive('/labs')}"
+          class="block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-600 [&.active]:pointer-events-none"
         >
-          Chat
+          Labs
         </a>
+      </li>
+      <li>
+        <button type="button" class="block px-4 py-2" (click)="toggleDarkMode()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="w-5 h-5">
+            <path *ngIf="isDarkMode" d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
+            <path *ngIf="!isDarkMode" d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/>
+          </svg>
+          <span class="sr-only">Dark Mode</span>
+        </button>
       </li>
     </ul>
   </nav>

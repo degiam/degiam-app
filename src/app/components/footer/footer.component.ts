@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GlobalSettingsService } from '@configs/global.service';
+import { GlobalService } from '@configs/global.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,12 +12,12 @@ export class FooterComponent {
   brand: string = '';
 
   constructor(
-    private globalSettings: GlobalSettingsService,
+    private configService: GlobalService,
   ) {}
 
   ngOnInit(): void {
-    // this.globalSettings.setConfigBrand('Updated brand');
-    this.brand = this.globalSettings.getConfigBrand();
+    // this.configService.setConfigBrand('Updated brand');
+    this.brand = this.configService.getConfigBrand();
   }
 
   get years(): string {

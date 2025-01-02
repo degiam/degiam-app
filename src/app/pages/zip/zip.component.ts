@@ -1,26 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalSettingsService } from '@configs/global.service';
+import { CommonModule } from '@angular/common';
+import { GlobalService } from '@configs/global.service';
+import { LoadingService } from '@/configs/loading.service';
 
 @Component({
   selector: 'app-zip',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './zip.component.html',
   styleUrl: './zip.component.css'
 })
 export class ZipComponent implements OnInit {
+  isLoading = true;
+
   constructor(
-    private globalSettings: GlobalSettingsService,
+    private configService: GlobalService,
+    private loadingService: LoadingService,
   ) {}
 
   ngOnInit(): void {
-    this.globalSettings.setPageMeta(
-      `Zip Apapun, Langsung Jadi! - QuiZip by ${this.globalSettings.getConfigAuthor()}`,
+    this.configService.setPageMeta(
+      `Zip Apapun, Langsung Jadi! - QuiZip by ${this.configService.getConfigAuthor()}`,
       'Arsipkan file atau folder menjadi file zip dengan mudah dan cepat, tanpa harus instal dulu.',
-      `${this.globalSettings.getConfigUrl()}/zip`
+      `${this.configService.getConfigUrl()}/zip`
     );
 
-    const { title, description, url } = this.globalSettings.getPageMeta();
-    this.globalSettings.updateMetaTags(title, description, url);
+    const { title, description, url } = this.configService.getPageMeta();
+    this.configService.updateMetaTags(title, description, url);
+
+    this.loadingService.isLoading$.subscribe(isLoading => {
+      this.isLoading = isLoading;
+    });
   }
 }

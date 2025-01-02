@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalSettingsService } from '@configs/global.service';
+import { GlobalService } from '@configs/global.service';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +9,23 @@ import { GlobalSettingsService } from '@configs/global.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+  brand: string;
   robotImg = '/assets/img/robot.png';
 
   constructor(
-    private globalSettings: GlobalSettingsService,
-  ) {}
+    private configService: GlobalService,
+  ) {
+    this.brand = this.configService.getConfigBrand();
+  }
 
   ngOnInit(): void {
-    this.globalSettings.setPageMeta(
-      this.globalSettings.getConfigBrand(),
+    this.configService.setPageMeta(
+      this.configService.getConfigBrand(),
       'Temukan beragam aplikasi untuk mendukung produktivitas kamu seharian.',
-      `${this.globalSettings.getConfigUrl()}/`
+      `${this.configService.getConfigUrl()}/`
     );
 
-    const { title, description, url } = this.globalSettings.getPageMeta();
-    this.globalSettings.updateMetaTags(title, description, url);
+    const { title, description, url } = this.configService.getPageMeta();
+    this.configService.updateMetaTags(title, description, url);
   }
 }

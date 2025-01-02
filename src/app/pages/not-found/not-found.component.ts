@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { GlobalSettingsService } from '@configs/global.service';
+import { GlobalService } from '@configs/global.service';
 import { LinkService } from '@configs/link.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class NotFoundComponent implements OnInit {
   image: string;
 
   constructor(
-    private globalSettings: GlobalSettingsService,
+    private configService: GlobalService,
     private linkService: LinkService,
         @Inject(PLATFORM_ID) private platformId: Object,
   ) {
@@ -22,14 +22,14 @@ export class NotFoundComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.globalSettings.setPageMeta(
-      `Laman Tidak Ditemukan - ${this.globalSettings.getConfigBrand()}`,
+    this.configService.setPageMeta(
+      `Laman Tidak Ditemukan - ${this.configService.getConfigBrand()}`,
       'Maaf, laman ini tidak tersedia.',
-      `${this.globalSettings.getConfigUrl()}/404`
+      `${this.configService.getConfigUrl()}/404`
     );
 
-    const { title, description, url } = this.globalSettings.getPageMeta();
-    this.globalSettings.updateMetaTags(title, description, url);
+    const { title, description, url } = this.configService.getPageMeta();
+    this.configService.updateMetaTags(title, description, url);
 
     if (isPlatformBrowser(this.platformId)) {
       this.linkService.setCanonicalLink(window.location.href);

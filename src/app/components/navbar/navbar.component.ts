@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { GlobalSettingsService } from '@configs/global.service';
+import { GlobalService } from '@configs/global.service';
+import { LoadingService } from '@/configs/loading.service';
 import { filter } from 'rxjs/operators';
 
 @Component({
@@ -17,13 +18,14 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private globalSettings: GlobalSettingsService,
+    private configService: GlobalService,
+    private loadingService: LoadingService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const savedMode = localStorage.getItem(this.globalSettings.getConfigLocalStorage());
+      const savedMode = localStorage.getItem(this.configService.getConfigLocalStorage());
 
       if (savedMode) {
         const savedData = JSON.parse(savedMode);
@@ -36,13 +38,14 @@ export class NavbarComponent implements OnInit {
         this.updateTheme(this.isDarkMode);
         this.updateThemeIframe(this.isDarkMode);
 
-        localStorage.setItem(this.globalSettings.getConfigLocalStorage(), JSON.stringify({ darkmode: this.isDarkMode }));
+        localStorage.setItem(this.configService.getConfigLocalStorage(), JSON.stringify({ darkmode: this.isDarkMode }));
       }
 
       this.router.events
         .pipe(filter(event => event instanceof NavigationEnd))
         .subscribe(() => {
           this.updateThemeIframe(this.isDarkMode);
+          this.loadingService.setLoadingStatus(true);
         });
     }
   }
@@ -55,7 +58,7 @@ export class NavbarComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.isDarkMode = !this.isDarkMode;
 
-      localStorage.setItem(this.globalSettings.getConfigLocalStorage(), JSON.stringify({ darkmode: this.isDarkMode }));
+      localStorage.setItem(this.configService.getConfigLocalStorage(), JSON.stringify({ darkmode: this.isDarkMode }));
       this.updateTheme(this.isDarkMode);
       this.updateThemeIframe(this.isDarkMode);
     }
@@ -71,13 +74,26 @@ export class NavbarComponent implements OnInit {
 
   private updateThemeIframe(isDark: boolean): void {
     const iframe = document.querySelector('iframe') as HTMLIFrameElement;
+
     if (iframe) {
-      iframe.addEventListener('load', () => {
+      const sendMessage = () => {
         iframe.contentWindow?.postMessage(
           { type: 'theme-change', isDarkMode: isDark },
           '*'
         );
-      });
+      };
+
+      if (iframe.classList.contains('loaded')) {
+        sendMessage();
+      } else {
+        iframe.addEventListener('load', () => {
+          sendMessage();
+          iframe.classList.add('loaded');
+          setTimeout(() => {
+            this.loadingService.setLoadingStatus(false);
+          },100);
+        });
+      }
     }
   }
 }

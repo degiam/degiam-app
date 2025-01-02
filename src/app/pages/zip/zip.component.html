@@ -2,12 +2,14 @@
   src="https://degiam-zip.vercel.app/"
   width="500"
   height="300"
-  class="w-screen min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-55px-6rem)]"
+  class="w-screen min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-55px-6rem)] transition-opacity"
+  [ngClass]="{'opacity-0': isLoading}"
 ></iframe>
 
-<!-- <iframe
-  src="http://localhost:5173/"
-  width="500"
-  height="300"
-  class="w-screen min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-55px-6rem)]"
-></iframe> -->
+<div *ngIf="isLoading" class="w-12 h-12 absolute top-0 left-0 bottom-0 right-0 m-auto">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full animate-spin">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path opacity=".25" d="M5.636 5.636a9 9 0 1 0 12.728 12.728a9 9 0 0 0 -12.728 -12.728z" />
+    <path opacity=".75" d="M16.243 7.757a6 6 0 0 0 -8.486 0" />
+  </svg>
+</div>

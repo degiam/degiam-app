@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { GlobalSettingsService } from '@configs/global.service';
+import { GlobalService } from '@configs/global.service';
 import { LinkService } from '@configs/link.service';
 import { NavbarComponent } from '@/components/navbar/navbar.component';
 import { FooterComponent } from '@/components/footer/footer.component';
@@ -24,14 +24,14 @@ export class AppComponent implements OnInit {
   constructor(
     private titleService: Title,
     private metaService: Meta,
-    private globalSettings: GlobalSettingsService,
+    private configService: GlobalService,
     private linkService: LinkService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
-    this.title = this.globalSettings.getConfigBrand();
-    this.description = this.globalSettings.getConfigDesc();
-    this.url = `${this.globalSettings.getConfigUrl()}/`;
-    this.favicon = `${this.globalSettings.getConfigUrl()}/favicon.png`;
+    this.title = this.configService.getConfigBrand();
+    this.description = this.configService.getConfigDesc();
+    this.url = `${this.configService.getConfigUrl()}/`;
+    this.favicon = `${this.configService.getConfigUrl()}/favicon.png`;
     this.keywords = 'degiam, website, app, designer, ui, ux, ui/ux, frontend, javascript, js, typescript, ts, css, html, tailwind, mantine, react, next, vue, nuxt, angular';
   }
 
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
 
     if (isPlatformBrowser(this.platformId)) {
       this.linkService.setCanonicalLink(this.url);
-      document.documentElement.lang = this.globalSettings.getConfigLang();
+      document.documentElement.lang = this.configService.getConfigLang();
     }
   }
 }

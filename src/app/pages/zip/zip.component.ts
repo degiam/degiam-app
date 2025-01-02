@@ -2,26 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalSettingsService } from '@configs/global.service';
 
 @Component({
-  selector: 'app-not-found',
+  selector: 'app-zip',
   standalone: true,
   imports: [],
-  templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.css'
+  templateUrl: './zip.component.html',
+  styleUrl: './zip.component.css'
 })
-export class NotFoundComponent implements OnInit {
-  image: string;
-
+export class ZipComponent implements OnInit {
   constructor(
     private globalSettings: GlobalSettingsService,
-  ) {
-    this.image = '/assets/img/warning.png';
-  }
+  ) {}
 
   ngOnInit(): void {
     this.globalSettings.setPageMeta(
-      `Laman Tidak Ditemukan - ${this.globalSettings.getConfigBrand()}`,
-      'Maaf, laman ini tidak tersedia.',
-      `${this.globalSettings.getConfigAuthor()}/404`
+      `Zip Apapun, Langsung Jadi! - QuiZip by ${this.globalSettings.getConfigAuthor()}`,
+      'Arsipkan file atau folder menjadi file zip dengan mudah dan cepat, tanpa harus instal dulu.',
+      `${this.globalSettings.getConfigAuthor()}/zip`
     );
 
     const { title, description, url } = this.globalSettings.getPageMeta();

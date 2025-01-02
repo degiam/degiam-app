@@ -1,31 +1,31 @@
 <header>
   <nav class="max-w-4xl w-full mx-auto fixed max-md:bottom-6 md:top-4 left-0 right-0 z-[1]">
-    <ul class="flex justify-center gap-2 w-fit mx-auto bg-white/50 dark:bg-slate-700/80 backdrop-blur-lg p-3 rounded-full shadow-xl text-sm">
+    <ul class="flex justify-center gap-1 w-fit mx-auto bg-white/50 dark:bg-slate-700/80 backdrop-blur-lg p-3 rounded-full shadow-xl text-sm">
       <li>
         <a
           [routerLink]="'/'"
           [ngClass]="{'active': isActive('/')}"
-          class="block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-600 [&.active]:pointer-events-none"
+          [class]="classLink"
         >
-          Home
+          Beranda
         </a>
       </li>
       <li>
         <a
-          [routerLink]="'/about'"
-          [ngClass]="{'active': isActive('/about')}"
-          class="block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-600 [&.active]:pointer-events-none"
+          [routerLink]="'/zip'"
+          [ngClass]="{'active': isActive('/zip')}"
+          [class]="classLink"
         >
-          About
+          Zip
         </a>
       </li>
       <li>
         <a
-          [routerLink]="'/labs'"
-          [ngClass]="{'active': isActive('/labs')}"
-          class="block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-600 [&.active]:pointer-events-none"
+          [routerLink]="'/chat'"
+          [ngClass]="{'active': isActive('/chat')}"
+          [class]="classLink"
         >
-          Labs
+          Chat
         </a>
       </li>
       <li>

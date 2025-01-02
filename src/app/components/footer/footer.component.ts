@@ -11,7 +11,9 @@ import { GlobalSettingsService } from '@configs/global.service';
 export class FooterComponent {
   brand: string = '';
 
-  constructor(private globalSettings: GlobalSettingsService) {}
+  constructor(
+    private globalSettings: GlobalSettingsService,
+  ) {}
 
   ngOnInit(): void {
     // this.globalSettings.setConfigBrand('Updated brand');

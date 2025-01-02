@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { GlobalSettingsService } from '@configs/global.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +9,20 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  robotImg = '/assets/img/robot.png';
+
+  constructor(
+    private globalSettings: GlobalSettingsService,
+  ) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Degiam App');
-    this.metaService.updateTag({ name: 'description', content: 'Welcome to the home page of Degiam App' });
-  }
+    this.globalSettings.setPageMeta(
+      this.globalSettings.getConfigBrand(),
+      'Temukan beragam aplikasi untuk mendukung produktivitas kamu seharian.',
+      `${this.globalSettings.getConfigAuthor()}/`
+    );
 
-  author = 'degiam';
-  robotImg = '/assets/img/robot.png';
+    const { title, description, url } = this.globalSettings.getPageMeta();
+    this.globalSettings.updateMetaTags(title, description, url);
+  }
 }

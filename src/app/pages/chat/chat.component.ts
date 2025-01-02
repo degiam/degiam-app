@@ -12,6 +12,8 @@ import { LoadingService } from '@/configs/loading.service';
 })
 export class ChatComponent implements OnInit {
   isLoading = true;
+  title = '';
+  description = '';
 
   constructor(
     private configService: GlobalService,
@@ -26,6 +28,9 @@ export class ChatComponent implements OnInit {
     );
 
     const { title, description, url } = this.configService.getPageMeta();
+
+    this.title = title;
+    this.description = description;
     this.configService.updateMetaTags(title, description, url);
 
     this.loadingService.isLoading$.subscribe(isLoading => {

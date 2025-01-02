@@ -10,7 +10,7 @@ import { GlobalService } from '@configs/global.service';
 })
 export class HomeComponent implements OnInit {
   brand: string;
-  robotImg = '/assets/img/robot.png';
+  image = '/assets/img/robot.png';
 
   constructor(
     private configService: GlobalService,
@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     );
 
     const { title, description, url } = this.configService.getPageMeta();
+
     this.configService.updateMetaTags(title, description, url);
   }
 }

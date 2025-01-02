@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     private metaService: Meta,
     private globalSettings: GlobalSettingsService,
     private linkService: LinkService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     this.title = this.globalSettings.getConfigBrand();
     this.description = this.globalSettings.getConfigDesc();

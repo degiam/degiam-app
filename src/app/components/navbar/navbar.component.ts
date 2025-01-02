@@ -70,14 +70,14 @@ export class NavbarComponent implements OnInit {
   }
 
   private updateThemeIframe(isDark: boolean): void {
-    setTimeout(() => {
-      const iframe = document.querySelector('iframe') as HTMLIFrameElement;
-      if (iframe) {
+    const iframe = document.querySelector('iframe') as HTMLIFrameElement;
+    if (iframe) {
+      iframe.addEventListener('load', () => {
         iframe.contentWindow?.postMessage(
-          { type: 'theme-change', isDarkMode: this.isDarkMode },
+          { type: 'theme-change', isDarkMode: isDark },
           '*'
         );
-      }
-    },100);
+      });
+    }
   }
 }

@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit {
     this.globalSettings.setPageMeta(
       `Chat Tanpa Simpan Nomor! - QuiChat by ${this.globalSettings.getConfigAuthor()}`,
       'Cukup masukkan nomor ponsel atau nama pengguna saja, kamu bisa chat tanpa harus menyimpan kontaknya.',
-      `${this.globalSettings.getConfigAuthor()}/chat`
+      `${this.globalSettings.getConfigUrl()}/chat`
     );
 
     const { title, description, url } = this.globalSettings.getPageMeta();

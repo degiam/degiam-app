@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.globalSettings.setPageMeta(
       this.globalSettings.getConfigBrand(),
       'Temukan beragam aplikasi untuk mendukung produktivitas kamu seharian.',
-      `${this.globalSettings.getConfigAuthor()}/`
+      `${this.globalSettings.getConfigUrl()}/`
     );
 
     const { title, description, url } = this.globalSettings.getPageMeta();

@@ -17,7 +17,7 @@ export class ZipComponent implements OnInit {
     this.globalSettings.setPageMeta(
       `Zip Apapun, Langsung Jadi! - QuiZip by ${this.globalSettings.getConfigAuthor()}`,
       'Arsipkan file atau folder menjadi file zip dengan mudah dan cepat, tanpa harus instal dulu.',
-      `${this.globalSettings.getConfigAuthor()}/zip`
+      `${this.globalSettings.getConfigUrl()}/zip`
     );
 
     const { title, description, url } = this.globalSettings.getPageMeta();

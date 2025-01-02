@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { GlobalSettingsService } from '@configs/global.service';
+import { LinkService } from '@configs/link.service';
 
 @Component({
   selector: 'app-not-found',
@@ -13,6 +15,8 @@ export class NotFoundComponent implements OnInit {
 
   constructor(
     private globalSettings: GlobalSettingsService,
+    private linkService: LinkService,
+        @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     this.image = '/assets/img/warning.png';
   }
@@ -21,10 +25,14 @@ export class NotFoundComponent implements OnInit {
     this.globalSettings.setPageMeta(
       `Laman Tidak Ditemukan - ${this.globalSettings.getConfigBrand()}`,
       'Maaf, laman ini tidak tersedia.',
-      `${this.globalSettings.getConfigAuthor()}/404`
+      `${this.globalSettings.getConfigUrl()}/404`
     );
 
     const { title, description, url } = this.globalSettings.getPageMeta();
     this.globalSettings.updateMetaTags(title, description, url);
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.linkService.setCanonicalLink(window.location.href);
+    }
   }
 }

@@ -2,8 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://app.degiam.my.id</loc>
-    <lastmod>2024-10-30T09:09:09.090Z</lastmod>
+    <lastmod>2024-12-31T23:59:59.999Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://app.degiam.my.id/zip</loc>
+    <lastmod>2025-01-01T00:00:00.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://app.degiam.my.id/chat</loc>
+    <lastmod>2025-01-01T00:00:00.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://app.degiam.my.id/picture</loc>
+    <lastmod>2025-01-01T00:00:00.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

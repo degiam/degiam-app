@@ -87,7 +87,7 @@ export class NavbarComponent implements OnInit {
           '*'
         );
 
-        const isMobile = window.innerWidth < 640;
+        const isMobile = window.innerWidth < 768;
         iframe.contentWindow?.postMessage(
           {
             type: 'screen-size',

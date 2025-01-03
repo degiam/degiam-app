@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    @apply font-sans dark:bg-slate-900 dark:text-white;
+    @apply font-sans dark:bg-slate-900 dark:text-white cursor-default;
   }
   img {
     @apply text-transparent;

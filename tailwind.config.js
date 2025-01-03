@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
+        title: ['"Jaro", sans-serif'],
       },
     },
   },

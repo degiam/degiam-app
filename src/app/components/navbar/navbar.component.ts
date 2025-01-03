@@ -14,7 +14,7 @@ import { filter } from 'rxjs/operators';
 })
 export class NavbarComponent implements OnInit {
   isDarkMode = false;
-  classLink = 'block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-600 [&.active]:pointer-events-none';
+  classLink = 'block px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-500 [&.active]:dark:bg-cyan-600 [&.active]:pointer-events-none';
 
   constructor(
     private router: Router,
@@ -78,7 +78,19 @@ export class NavbarComponent implements OnInit {
     if (iframe) {
       const sendMessage = () => {
         iframe.contentWindow?.postMessage(
-          { type: 'theme-change', isDarkMode: isDark },
+          {
+            type: 'theme-change',
+            isDarkMode: isDark
+          },
+          '*'
+        );
+
+        const isMobile = window.innerWidth < 640;
+        iframe.contentWindow?.postMessage(
+          {
+            type: 'screen-size',
+            isMobile: isMobile
+          },
           '*'
         );
       };

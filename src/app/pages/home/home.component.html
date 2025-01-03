@@ -1,11 +1,14 @@
-<section class="w-full my-auto">
-  <div class="w-full max-w-7xl mx-auto px-6 py-6">
-    <div class="w-fit mx-auto text-center">
-      <img [src]="image" alt="robot" width="300" height="300" class="object-contain animate-float mx-auto" />
-      <div class="max-w-sm mx-auto">
-        <p class="dark:text-slate-500">Temukan beragam aplikasi keren untuk mendukung produktivitasmu seharian hanya di</p>
-        <h1 class="text-3xl font-bold my-4">{{ brand }}</h1>
+<main class="min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-55px)] flex items-center justify-center md:pt-24">
+  <section class="w-full my-auto">
+    <div class="w-full max-w-7xl mx-auto px-6 py-6">
+      <div class="w-fit mx-auto text-center">
+        <img [src]="image" alt="robot" width="300" height="300" class="object-contain animate-float mx-auto" />
+        <div class="max-w-sm mx-auto">
+          <p class="text-slate-400 dark:text-slate-500">Temukan beragam aplikasi keren untuk mendukung produktivitasmu sehari-hari dengan</p>
+          <h1 class="text-5xl font-bold font-title my-4 text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600">{{ brand }}</h1>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
+<app-footer />

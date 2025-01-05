@@ -37,13 +37,22 @@
       </li>
       <li>
         <a
+          [routerLink]="'/link'"
+          [ngClass]="{'active': isActive('/link')}"
+          [class]="classLinkDefault"
+        >
+          Link
+        </a>
+      </li>
+      <!-- <li>
+        <a
           [routerLink]="'/picture'"
           [ngClass]="{'active': isActive('/picture')}"
           [class]="classLinkDefault"
         >
-          Gambar
+          Pict
         </a>
-      </li>
+      </li> -->
       <li>
         <button type="button" class="block p-2 mr-2" (click)="toggleDarkMode()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="w-5 h-5">

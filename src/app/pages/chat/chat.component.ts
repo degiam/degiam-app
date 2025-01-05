@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { GlobalService } from '@configs/global.service';
 import { LoadingService } from '@/configs/loading.service';
 
@@ -10,7 +10,7 @@ import { LoadingService } from '@/configs/loading.service';
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
   isLoading = true;
   title = '';
   description = '';
@@ -18,11 +18,12 @@ export class ChatComponent implements OnInit {
   constructor(
     private configService: GlobalService,
     private loadingService: LoadingService,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Chat Tanpa Simpan Nomor! - QuiChat by ${this.configService.getConfigAuthor()}`,
+      `Chat Tanpa Simpan Nomor - KieChat by ${this.configService.getConfigAuthor()}`,
       'Cukup masukkan nomor ponsel atau nama pengguna saja, kamu bisa chat tanpa harus menyimpan kontaknya.',
       `${this.configService.getConfigUrl()}/chat`
     );
@@ -36,5 +37,27 @@ export class ChatComponent implements OnInit {
     this.loadingService.isLoading$.subscribe(isLoading => {
       this.isLoading = isLoading;
     });
+
+    this.configService.childInsideIframe();
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.messageListener = (event: MessageEvent) => {
+        const { type, link } = event.data;
+
+        if (type === 'link') {
+          window.location.href = link;
+        }
+      };
+
+      window.addEventListener('message', this.messageListener);
+    }
   }
+
+  ngOnDestroy() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('message', this.messageListener);
+    }
+  }
+
+  private messageListener!: (event: MessageEvent) => void;
 }

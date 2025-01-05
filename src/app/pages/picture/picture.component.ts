@@ -22,7 +22,7 @@ export class PictureComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Perkecil Ukuran dan Konversi Gambar Tanpa Ribet! - QuiPic by ${this.configService.getConfigAuthor()}`,
+      `Perkecil Ukuran dan Konversi Gambar Tanpa Ribet - KiePic by ${this.configService.getConfigAuthor()}`,
       'Kompres dan konversi gambar dengan mudah, tanpa perlu instal aplikasi tambahan.',
       `${this.configService.getConfigUrl()}/picture`
     );

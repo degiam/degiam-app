@@ -4,13 +4,13 @@ import { GlobalService } from '@configs/global.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-zip',
+  selector: 'app-link',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './zip.component.html',
-  styleUrl: './zip.component.css'
+  templateUrl: './link.component.html',
+  styleUrl: './link.component.css'
 })
-export class ZipComponent implements OnInit {
+export class LinkComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
@@ -22,9 +22,9 @@ export class ZipComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Zip Apapun, Langsung Jadi! - KieZip by ${this.configService.getConfigAuthor()}`,
-      'Arsipkan file atau folder menjadi file zip dengan mudah dan cepat, tanpa harus instal dulu.',
-      `${this.configService.getConfigUrl()}/zip`
+      `Singkat Tautan Biar Gak Ribet - KieLink by ${this.configService.getConfigAuthor()}`,
+      'Persingkat URL dan generate QR Code dari tautan kamu biar mudah dibagikan',
+      `${this.configService.getConfigUrl()}/link`
     );
 
     const { title, description, url } = this.configService.getPageMeta();

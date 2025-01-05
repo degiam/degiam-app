@@ -22,7 +22,7 @@ export class GlobalService {
   constructor(
     private titleService: Title,
     private metaService: Meta,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 
   setPageMeta(title: string, description: string, url: string): void {
@@ -92,6 +92,24 @@ export class GlobalService {
         document.head.appendChild(link);
       }
       link.setAttribute('href', url);
+    }
+  }
+
+  childInsideIframe(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const iframe = document.querySelector('iframe') as HTMLIFrameElement;
+
+      if (iframe) {
+        iframe.addEventListener('load', () => {
+          iframe.contentWindow?.postMessage(
+            {
+              type: 'child-inside-iframe',
+              value: true
+            },
+            '*'
+          );
+        });
+      }
     }
   }
 }

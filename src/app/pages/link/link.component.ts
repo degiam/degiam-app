@@ -23,7 +23,7 @@ export class LinkComponent implements OnInit {
   ngOnInit(): void {
     this.configService.setPageMeta(
       `Singkat Tautan Biar Gak Ribet - KieLink by ${this.configService.getConfigAuthor()}`,
-      'Persingkat URL dan generate QR Code dari tautan kamu biar mudah dibagikan',
+      'Persingkat URL dan generate QR Code dari tautan agar mudah dibagikan',
       `${this.configService.getConfigUrl()}/link`
     );
 

@@ -100,6 +100,14 @@ export class NavbarComponent implements OnInit {
       if (iframe.classList.contains('loaded')) {
         sendMessage();
       } else {
+        const handleIframeReady = (event: MessageEvent) => {
+          if (event.data?.type === 'iframe-ready') {
+            sendMessage();
+            window.removeEventListener('message', handleIframeReady);
+          }
+        };
+        window.addEventListener('message', handleIframeReady);
+
         iframe.addEventListener('load', () => {
           sendMessage();
           iframe.classList.add('loaded');

@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { GlobalService } from '@configs/global.service';
 import { LinkService } from '@configs/link.service';
+import { AnalyticsService } from '@configs/analytics.service';
 import { NavbarComponent } from '@/components/navbar/navbar.component';
 
 @Component({
@@ -23,8 +24,10 @@ export class AppComponent implements OnInit {
   constructor(
     private titleService: Title,
     private metaService: Meta,
+    private router: Router,
     private configService: GlobalService,
     private linkService: LinkService,
+    private analyticsService: AnalyticsService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     this.title = this.configService.getConfigBrand();
@@ -64,5 +67,11 @@ export class AppComponent implements OnInit {
       this.linkService.setCanonicalLink(this.url);
       document.documentElement.lang = this.configService.getConfigLang();
     }
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.analyticsService.sendPageView(event.urlAfterRedirects);
+      }
+    });
   }
 }

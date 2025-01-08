@@ -4,13 +4,13 @@ import { GlobalService } from '@configs/global.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-picture',
+  selector: 'app-pict',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './picture.component.html',
-  styleUrl: './picture.component.css'
+  templateUrl: './pict.component.html',
+  styleUrl: './pict.component.css'
 })
-export class PictureComponent implements OnInit {
+export class PictComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
@@ -22,8 +22,8 @@ export class PictureComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Perkecil Ukuran dan Konversi Gambar Tanpa Ribet - KiePic by ${this.configService.getConfigAuthor()}`,
-      'Kompres dan konversi gambar dengan mudah, tanpa perlu instal aplikasi tambahan.',
+      `Perkecil Ukuran dan Konversi Gambar Tanpa Ribet - KiePict by ${this.configService.getConfigAuthor()}`,
+      'Kompresi dan konversi gambar dengan mudah, tanpa perlu instal aplikasi tambahan.',
       `${this.configService.getConfigUrl()}/picture`
     );
 

@@ -4,7 +4,7 @@ import { NotFoundComponent } from '@pages/not-found/not-found.component';
 import { ZipComponent } from '@pages/zip/zip.component';
 import { ChatComponent } from '@pages/chat/chat.component';
 import { LinkComponent } from '@pages/link/link.component';
-import { PictureComponent } from '@pages/picture/picture.component';
+import { PictComponent } from '@pages/pict/pict.component';
 
 export const routes: Routes = [
   {
@@ -24,8 +24,8 @@ export const routes: Routes = [
     component: LinkComponent,
   },
   {
-    path: 'picture',
-    component: PictureComponent,
+    path: 'pict',
+    component: PictComponent,
   },
   {
     path: '**',

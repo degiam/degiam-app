@@ -1,6 +1,6 @@
 <header>
   <nav class="max-w-4xl w-full mx-auto fixed max-md:bottom-6 md:top-4 left-0 right-0 z-[1]">
-    <ul class="flex justify-center gap-1 w-fit mx-auto bg-white/50 dark:bg-slate-700/80 backdrop-blur-lg p-3 rounded-full shadow-xl text-sm">
+    <ul class="flex justify-center gap-1 w-fit mx-auto border-t border-slate-100 dark:border-transparent bg-white/50 dark:bg-slate-700/80 backdrop-blur-lg p-3 rounded-full shadow-xl text-sm">
       <li>
         <a
           [routerLink]="'/'"
@@ -44,15 +44,15 @@
           Link
         </a>
       </li>
-      <!-- <li>
+      <li>
         <a
-          [routerLink]="'/picture'"
-          [ngClass]="{'active': isActive('/picture')}"
+          [routerLink]="'/pict'"
+          [ngClass]="{'active': isActive('/pict')}"
           [class]="classLinkDefault"
         >
           Pict
         </a>
-      </li> -->
+      </li>
       <li>
         <button type="button" class="block p-2 mr-2" (click)="toggleDarkMode()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="w-5 h-5">

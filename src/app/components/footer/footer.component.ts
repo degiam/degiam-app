@@ -22,6 +22,7 @@ export class FooterComponent {
 
   get years(): string {
     const currentYear = new Date().getFullYear();
-    return currentYear === 2024 ? '2024' : `2024-${currentYear}`;
+    // return currentYear === 2024 ? '2024' : `2024-${currentYear}`;
+    return String(currentYear);
   }
 }

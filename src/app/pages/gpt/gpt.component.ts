@@ -4,13 +4,13 @@ import { GlobalService } from '@configs/global.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-pict',
+  selector: 'app-gpt',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './pict.component.html',
-  styleUrl: './pict.component.css'
+  templateUrl: './gpt.component.html',
+  styleUrl: './gpt.component.css'
 })
-export class PictComponent implements OnInit {
+export class GptComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
@@ -22,8 +22,8 @@ export class PictComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Editor Gambar Online yang Serba Bisa - KiePict by ${this.configService.getConfigAuthor()}`,
-      'Tidak perlu Photoshop! Kamu bisa edit gambar tanpa perlu ribet instal.',
+      `Mau curhat? Yuk Ngobrol Sama GPT - KieGPT by ${this.configService.getConfigAuthor()}`,
+      'Dapatkan saran dari GPT AI untuk masalah atau kendala yang kamu hadapi',
       `${this.configService.getConfigUrl()}/picture`
     );
 

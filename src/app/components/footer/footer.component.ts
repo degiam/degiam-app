@@ -9,7 +9,8 @@ import { GlobalService } from '@configs/global.service';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  brand: string = '';
+  author: string = '';
+  author_url: string = '';
 
   constructor(
     private configService: GlobalService,
@@ -17,7 +18,8 @@ export class FooterComponent {
 
   ngOnInit(): void {
     // this.configService.setConfigBrand('Updated brand');
-    this.brand = this.configService.getConfigBrand();
+    this.author = this.configService.getConfigAuthor();
+    this.author_url = this.configService.getConfigAuthorUrl();
   }
 
   get years(): string {

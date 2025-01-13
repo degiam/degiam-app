@@ -11,6 +11,7 @@ export class GlobalService {
   private config_url: string = 'https://app.degiam.my.id';
   private config_lang: string = 'id';
   private config_author: string = 'Degiam';
+  private config_author_url: string = 'https://degiam.my.id';
   private config_localstorage: string = 'degiam-app';
 
   pageMeta: { title: string; description: string; url: string } = {
@@ -65,6 +66,13 @@ export class GlobalService {
   }
   getConfigAuthor(): string {
     return this.config_author;
+  }
+
+  setConfigAuthorUrl(value: string): void {
+    this.config_author_url = value;
+  }
+  getConfigAuthorUrl(): string {
+    return this.config_author_url;
   }
 
   setConfigLocalStorage(value: string): void {

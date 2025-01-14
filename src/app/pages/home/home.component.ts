@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '@configs/global.service';
 import { FooterComponent } from '@/components/footer/footer.component';
+import { PopoverComponent } from '@/components/popover/popover.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FooterComponent],
+  imports: [FooterComponent, PopoverComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

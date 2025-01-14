@@ -2,7 +2,10 @@
   <section class="w-full my-auto relative z-[1]">
     <div class="w-full max-w-7xl mx-auto px-6 py-6">
       <div class="w-fit mx-auto text-center">
-        <img [src]="image" alt="robot" width="300" height="300" class="object-contain animate-float mx-auto" />
+        <app-popover>
+          <img [src]="image" alt="robot" width="300" height="300" class="object-contain animate-float mx-auto" />
+          <div content>Halo, selamat datang di <b>Degiam App</b>! Semua aplikasi bisa digunakan gratis</div>
+        </app-popover>
         <div class="max-w-sm mx-auto">
           <p class="text-slate-400 dark:text-slate-500">Jelajahi beragam aplikasi luar biasa untuk mendukung aktivitas harianmu</p>
           <h1 class="text-5xl font-bold font-title my-4 text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600">{{ brand }}</h1>

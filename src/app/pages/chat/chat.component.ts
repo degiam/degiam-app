@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { GlobalService } from '@configs/global.service';
+import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   constructor(
     private configService: GlobalService,
+    private schemaService: SchemaService,
     private loadingService: LoadingService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
@@ -38,6 +40,14 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.isLoading = isLoading;
     });
 
+    const schema = [
+      this.schemaService.schemaBreadcrumb,
+      this.schemaService.schemaWebSite,
+      this.schemaService.schemaWebPageChat,
+    ];
+
+    this.schemaService.addJsonLd(schema);
+
     this.configService.childInsideIframe();
 
     if (isPlatformBrowser(this.platformId)) {
@@ -54,6 +64,8 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.schemaService.removeJsonLd();
+
     if (isPlatformBrowser(this.platformId)) {
       window.removeEventListener('message', this.messageListener);
     }

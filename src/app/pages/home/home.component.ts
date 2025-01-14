@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '@configs/global.service';
+import { SchemaService } from '@/configs/schema.service';
 import { FooterComponent } from '@/components/footer/footer.component';
 import { PopoverComponent } from '@/components/popover/popover.component';
 
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private configService: GlobalService,
+    private schemaService: SchemaService,
   ) {
     this.brand = this.configService.getConfigBrand();
   }
@@ -30,5 +32,17 @@ export class HomeComponent implements OnInit {
     const { title, description, url } = this.configService.getPageMeta();
 
     this.configService.updateMetaTags(title, description, url);
+
+    const schema = [
+      this.schemaService.schemaBreadcrumb,
+      this.schemaService.schemaWebSite,
+      this.schemaService.schemaWebPageHome,
+    ];
+
+    this.schemaService.addJsonLd(schema);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.removeJsonLd();
   }
 }

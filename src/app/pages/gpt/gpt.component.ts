@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GlobalService } from '@configs/global.service';
+import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
@@ -17,12 +18,13 @@ export class GptComponent implements OnInit {
 
   constructor(
     private configService: GlobalService,
+    private schemaService: SchemaService,
     private loadingService: LoadingService,
   ) {}
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Mau curhat? Yuk Ngobrol Sama GPT - KieGPT by ${this.configService.getConfigAuthor()}`,
+      `Mau Curhat? Yuk Ngobrol Sama GPT - KieGPT by ${this.configService.getConfigAuthor()}`,
       'Dapatkan saran dari GPT AI untuk masalah atau kendala yang kamu hadapi',
       `${this.configService.getConfigUrl()}/picture`
     );
@@ -36,5 +38,17 @@ export class GptComponent implements OnInit {
     this.loadingService.isLoading$.subscribe(isLoading => {
       this.isLoading = isLoading;
     });
+
+    const schema = [
+      this.schemaService.schemaBreadcrumb,
+      this.schemaService.schemaWebSite,
+      this.schemaService.schemaWebPageGpt,
+    ];
+
+    this.schemaService.addJsonLd(schema);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.removeJsonLd();
   }
 }

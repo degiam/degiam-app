@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class GlobalService {
   private config_brand: string = 'Degiam App';
-  private config_desc: string = 'Selamat datang di Degiam App';
+  private config_desc: string = 'Jelajahi beragam aplikasi luar biasa untuk mendukung aktivitas harianmu';
   private config_url: string = 'https://app.degiam.my.id';
   private config_lang: string = 'id';
   private config_author: string = 'Degiam';

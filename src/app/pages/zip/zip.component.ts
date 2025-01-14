@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GlobalService } from '@configs/global.service';
+import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class ZipComponent implements OnInit {
 
   constructor(
     private configService: GlobalService,
+    private schemaService: SchemaService,
     private loadingService: LoadingService,
   ) {}
 
@@ -36,5 +38,17 @@ export class ZipComponent implements OnInit {
     this.loadingService.isLoading$.subscribe(isLoading => {
       this.isLoading = isLoading;
     });
+
+    const schema = [
+      this.schemaService.schemaBreadcrumb,
+      this.schemaService.schemaWebSite,
+      this.schemaService.schemaWebPageZip,
+    ];
+
+    this.schemaService.addJsonLd(schema);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.removeJsonLd();
   }
 }

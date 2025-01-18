@@ -5,11 +5,10 @@ import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-pict',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './pict.component.html',
-  styleUrl: './pict.component.css'
+    selector: 'app-pict',
+    imports: [CommonModule],
+    templateUrl: './pict.component.html',
+    styleUrl: './pict.component.css'
 })
 export class PictComponent implements OnInit {
   isLoading = true;

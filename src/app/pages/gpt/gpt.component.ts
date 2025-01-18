@@ -5,11 +5,10 @@ import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-gpt',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './gpt.component.html',
-  styleUrl: './gpt.component.css'
+    selector: 'app-gpt',
+    imports: [CommonModule],
+    templateUrl: './gpt.component.html',
+    styleUrl: './gpt.component.css'
 })
 export class GptComponent implements OnInit {
   isLoading = true;

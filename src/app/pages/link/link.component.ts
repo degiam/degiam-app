@@ -5,11 +5,10 @@ import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-link',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './link.component.html',
-  styleUrl: './link.component.css'
+    selector: 'app-link',
+    imports: [CommonModule],
+    templateUrl: './link.component.html',
+    styleUrl: './link.component.css'
 })
 export class LinkComponent implements OnInit {
   isLoading = true;

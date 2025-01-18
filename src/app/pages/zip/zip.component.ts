@@ -5,11 +5,10 @@ import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-zip',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './zip.component.html',
-  styleUrl: './zip.component.css'
+    selector: 'app-zip',
+    imports: [CommonModule],
+    templateUrl: './zip.component.html',
+    styleUrl: './zip.component.css'
 })
 export class ZipComponent implements OnInit {
   isLoading = true;

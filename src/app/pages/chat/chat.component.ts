@@ -5,11 +5,10 @@ import { SchemaService } from '@/configs/schema.service';
 import { LoadingService } from '@/configs/loading.service';
 
 @Component({
-  selector: 'app-chat',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './chat.component.html',
-  styleUrl: './chat.component.css'
+    selector: 'app-chat',
+    imports: [CommonModule],
+    templateUrl: './chat.component.html',
+    styleUrl: './chat.component.css'
 })
 export class ChatComponent implements OnInit, OnDestroy {
   isLoading = true;

@@ -5,11 +5,10 @@ import { FooterComponent } from '@/components/footer/footer.component';
 import { PopoverComponent } from '@/components/popover/popover.component';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [FooterComponent, PopoverComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    imports: [FooterComponent, PopoverComponent],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
   brand: string;

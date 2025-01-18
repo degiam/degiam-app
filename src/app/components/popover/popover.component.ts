@@ -2,11 +2,10 @@ import { Component, Input, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-popover',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './popover.component.html',
-  styleUrl: './popover.component.css'
+    selector: 'app-popover',
+    imports: [CommonModule],
+    templateUrl: './popover.component.html',
+    styleUrl: './popover.component.css'
 })
 export class PopoverComponent implements OnInit {
   @Input() maxWidth: number = 200;

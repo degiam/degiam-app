@@ -1,7 +1,7 @@
 {
-  "name": "degiam",
-  "short_name": "degiam",
-  "theme_color": "#1976d2",
+  "name": "Degiam",
+  "short_name": "Degiam",
+  "theme_color": "#06b6d4",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",

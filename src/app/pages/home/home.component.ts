@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService } from '@configs/global.service';
-import { SchemaService } from '@/configs/schema.service';
+import { GlobalService } from '@/services/global.service';
+import { SchemaService } from '@/services/schema.service';
 import { FooterComponent } from '@/components/footer/footer.component';
 import { PopoverComponent } from '@/components/popover/popover.component';
 

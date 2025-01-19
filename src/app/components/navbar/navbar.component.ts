@@ -1,13 +1,15 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { GlobalService } from '@configs/global.service';
-import { LoadingService } from '@/configs/loading.service';
+import { GlobalService } from '@/services/global.service';
+import { LoadingService } from '@/services/loading.service';
+import { SwipeService } from '@/services/swipe.service';
+import { SwipeDirective } from '@/directives/swipe.directive';
 import { filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-navbar',
-    imports: [RouterModule, CommonModule],
+    imports: [RouterModule, CommonModule, SwipeDirective],
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css']
 })
@@ -21,6 +23,7 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private configService: GlobalService,
     private loadingService: LoadingService,
+    private swipeService: SwipeService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 
@@ -123,5 +126,13 @@ export class NavbarComponent implements OnInit {
         });
       }
     }
+  }
+
+  onSwipeLeft(): void {
+    this.swipeService.navigateOnSwipeLeft();
+  }
+
+  onSwipeRight(): void {
+    this.swipeService.navigateOnSwipeRight();
   }
 }

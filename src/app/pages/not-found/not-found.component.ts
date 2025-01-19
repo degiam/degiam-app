@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { GlobalService } from '@configs/global.service';
-import { LinkService } from '@configs/link.service';
+import { GlobalService } from '@/services/global.service';
+import { LinkService } from '@/services/link.service';
 
 @Component({
     selector: 'app-not-found',

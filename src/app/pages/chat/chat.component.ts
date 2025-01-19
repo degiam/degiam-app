@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { GlobalService } from '@configs/global.service';
-import { SchemaService } from '@/configs/schema.service';
-import { LoadingService } from '@/configs/loading.service';
+import { GlobalService } from '@/services/global.service';
+import { SchemaService } from '@/services/schema.service';
+import { LoadingService } from '@/services/loading.service';
 
 @Component({
     selector: 'app-chat',

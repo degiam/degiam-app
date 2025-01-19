@@ -5,7 +5,7 @@ import { ZipComponent } from '@pages/zip/zip.component';
 import { ChatComponent } from '@pages/chat/chat.component';
 import { LinkComponent } from '@pages/link/link.component';
 import { PictComponent } from '@pages/pict/pict.component';
-import { GptComponent } from '@pages/gpt/gpt.component';
+// import { GptComponent } from '@pages/gpt/gpt.component';
 
 export const routes: Routes = [
   {
@@ -28,12 +28,18 @@ export const routes: Routes = [
     path: 'pict',
     component: PictComponent,
   },
-  {
-    path: 'gpt',
-    component: GptComponent,
-  },
+  // {
+  //   path: 'gpt',
+  //   component: GptComponent,
+  // },
   {
     path: '**',
     component: NotFoundComponent,
   }
 ];
+
+export const getPaths = (): string[] => {
+  return routes
+    .filter((route) => route.path !== '**')
+    .map((route) => route.path || '');
+};

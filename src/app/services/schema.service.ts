@@ -17,7 +17,7 @@ export class SchemaService {
   private readonly meta_author_company = 'JogjaCamp';
   private readonly meta_email = 'degiam@outlook.com';
   private readonly meta_url = 'https://app.degiam.my.id';
-  private readonly meta_logo = 'https://app.degiam.my.id/favicon.png';
+  private readonly meta_logo = 'https://app.degiam.my.id/icons/icon-192x192.png';
   private readonly github = 'https://github.com/degiam';
   private readonly gitlab = 'https://gitlab.com/degiam';
   private readonly figma = 'https://figma.com/@degiam';

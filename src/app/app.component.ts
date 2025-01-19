@@ -2,9 +2,9 @@ import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { GlobalService } from '@configs/global.service';
-import { LinkService } from '@configs/link.service';
-import { AnalyticsService } from '@configs/analytics.service';
+import { GlobalService } from '@/services/global.service';
+import { LinkService } from '@/services/link.service';
+import { AnalyticsService } from '@/services/analytics.service';
 import { NavbarComponent } from '@/components/navbar/navbar.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   title: string;
   description: string;
   url: string;
-  favicon: string;
+  thumbnail: string;
   keywords: string;
 
   constructor(
@@ -32,8 +32,8 @@ export class AppComponent implements OnInit {
     this.title = this.configService.getConfigBrand();
     this.description = this.configService.getConfigDesc();
     this.url = `${this.configService.getConfigUrl()}/`;
-    this.favicon = `${this.configService.getConfigUrl()}/favicon.png`;
-    this.keywords = 'degiam, website, app, designer, ui, ux, ui/ux, frontend, javascript, js, typescript, ts, css, html, tailwind, mantine, react, next, vue, nuxt, angular';
+    this.thumbnail = `${this.configService.getConfigUrl()}/icons/icon-192x192.png`;
+    this.keywords = 'website, web, app, designer, ui, ux, ui/ux, frontend, developer, javascript, js, typescript, ts, css, html, tailwind, react, next, vue, nuxt, angular, svelte, solid, lit, express, mantine, primevue';
   }
 
   ngOnInit(): void {
@@ -45,14 +45,14 @@ export class AppComponent implements OnInit {
 
       { property: 'og:title', content: this.title },
       { property: 'og:description', content: this.description },
-      { property: 'og:image', content: this.favicon },
+      { property: 'og:image', content: this.thumbnail },
       { property: 'og:url', content: this.url },
       { property: 'og:site_name', content: this.title },
 
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: this.title },
       { name: 'twitter:description', content: this.description },
-      { name: 'twitter:image', content: this.favicon },
+      { name: 'twitter:image', content: this.thumbnail },
 
       { name: 'format-detection', content: 'telephone=no, address=no, email=no' },
 

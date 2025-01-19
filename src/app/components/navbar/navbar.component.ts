@@ -39,6 +39,8 @@ export class NavbarComponent implements OnInit {
       this.updateTheme(this.isDarkMode);
       this.updateThemeIframe(this.isDarkMode);
 
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.handleSystemDarkModeChange.bind(this));
+
       this.router.events
         .pipe(filter(event => event instanceof NavigationEnd))
         .subscribe(() => {
@@ -61,6 +63,13 @@ export class NavbarComponent implements OnInit {
       this.updateTheme(this.isDarkMode);
       this.updateThemeIframe(this.isDarkMode);
     }
+  }
+
+  private handleSystemDarkModeChange(event: MediaQueryListEvent): void {
+    const isDark = event.matches;
+    this.isDarkMode = isDark;
+    this.updateTheme(isDark);
+    this.updateThemeIframe(isDark);
   }
 
   private updateTheme(isDark: boolean): void {

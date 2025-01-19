@@ -31,16 +31,13 @@ export class NavbarComponent implements OnInit {
       if (savedMode) {
         const savedData = JSON.parse(savedMode);
         this.isDarkMode = savedData.darkmode;
-        this.updateTheme(this.isDarkMode);
-        this.updateThemeIframe(this.isDarkMode);
       } else {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         this.isDarkMode = prefersDark;
-        this.updateTheme(this.isDarkMode);
-        this.updateThemeIframe(this.isDarkMode);
-
-        localStorage.setItem(this.configService.getConfigLocalStorage(), JSON.stringify({ darkmode: this.isDarkMode }));
       }
+
+      this.updateTheme(this.isDarkMode);
+      this.updateThemeIframe(this.isDarkMode);
 
       this.router.events
         .pipe(filter(event => event instanceof NavigationEnd))
@@ -60,6 +57,7 @@ export class NavbarComponent implements OnInit {
       this.isDarkMode = !this.isDarkMode;
 
       localStorage.setItem(this.configService.getConfigLocalStorage(), JSON.stringify({ darkmode: this.isDarkMode }));
+
       this.updateTheme(this.isDarkMode);
       this.updateThemeIframe(this.isDarkMode);
     }

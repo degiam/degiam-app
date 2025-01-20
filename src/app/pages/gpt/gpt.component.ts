@@ -25,7 +25,7 @@ export class GptComponent implements OnInit {
     this.configService.setPageMeta(
       `Mau Curhat? Yuk Ngobrol Sama GPT - KieGPT by ${this.configService.getConfigAuthor()}`,
       'Dapatkan saran dari GPT AI untuk masalah atau kendala yang kamu hadapi',
-      `${this.configService.getConfigUrl()}/picture`
+      `${this.configService.getConfigUrl()}/gpt`
     );
 
     const { title, description, url } = this.configService.getPageMeta();

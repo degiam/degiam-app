@@ -5,12 +5,12 @@ import { SchemaService } from '@/services/schema.service';
 import { LoadingService } from '@/services/loading.service';
 
 @Component({
-    selector: 'app-pict',
+    selector: 'app-scan',
     imports: [CommonModule],
-    templateUrl: './pict.component.html',
-    styleUrl: './pict.component.css'
+    templateUrl: './scan.component.html',
+    styleUrl: './scan.component.css'
 })
-export class PictComponent implements OnInit {
+export class ScanComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
@@ -23,9 +23,9 @@ export class PictComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Editor Gambar Online yang Serba Bisa - KiePict by ${this.configService.getConfigAuthor()}`,
-      'Tidak perlu Photoshop! Kamu bisa edit gambar tanpa perlu ribet instal.',
-      `${this.configService.getConfigUrl()}/pict`
+      `Scan Apapun yang Ada Didepanmu - KieScan by ${this.configService.getConfigAuthor()}`,
+      '...',
+      `${this.configService.getConfigUrl()}/scan`
     );
 
     const { title, description, url } = this.configService.getPageMeta();
@@ -40,7 +40,7 @@ export class PictComponent implements OnInit {
 
     const schema = [
       this.schemaService.schemaWebSite,
-      this.schemaService.schemaWebPagePict,
+      this.schemaService.schemaWebPageScan,
     ];
 
     this.schemaService.addJsonLd(schema);

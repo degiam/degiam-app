@@ -21,16 +21,16 @@ export class NotFoundComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.configService.setPageMeta(
-      `Laman Tidak Ditemukan - ${this.configService.getConfigBrand()}`,
-      'Maaf, laman ini tidak tersedia.',
-      `${this.configService.getConfigUrl()}/404`
-    );
-
-    const { title, description, url } = this.configService.getPageMeta();
-    this.configService.updateMetaTags(title, description, url);
-
     if (isPlatformBrowser(this.platformId)) {
+      this.configService.setPageMeta(
+        `Laman Tidak Ditemukan - ${this.configService.getConfigBrand()}`,
+        'Maaf, laman ini tidak tersedia.',
+        window.location.href
+      );
+  
+      const { title, description, url } = this.configService.getPageMeta();
+      this.configService.updateMetaTags(title, description, url);
+
       this.linkService.setCanonicalLink(window.location.href);
     }
   }

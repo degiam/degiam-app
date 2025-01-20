@@ -57,6 +57,15 @@
           Pict
         </a>
       </li>
+      <li>
+        <a
+          [routerLink]="'/gpt'"
+          [ngClass]="{'active': isActive('/gpt')}"
+          [class]="classLinkDefault"
+        >
+          GPT
+        </a>
+      </li>
       <li class="sr-only">
         <button type="button" class="block p-2 mr-2" (click)="toggleDarkMode()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="w-5 h-5">

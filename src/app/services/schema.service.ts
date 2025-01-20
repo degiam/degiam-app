@@ -111,7 +111,7 @@ export class SchemaService {
           'item': {
             '@id': this.meta_url,
             'url': this.meta_url,
-            'name': 'Home',
+            'name': 'home',
           },
         },
         {
@@ -120,7 +120,7 @@ export class SchemaService {
           'item': {
             '@id': `${this.meta_url}/zip`,
             'url': `${this.meta_url}/zip`,
-            'name': 'KieZip',
+            'name': 'zip',
           },
         },
       ],
@@ -145,7 +145,7 @@ export class SchemaService {
           'item': {
             '@id': this.meta_url,
             'url': this.meta_url,
-            'name': 'Home',
+            'name': 'home',
           },
         },
         {
@@ -154,7 +154,7 @@ export class SchemaService {
           'item': {
             '@id': `${this.meta_url}/chat`,
             'url': `${this.meta_url}/chat`,
-            'name': 'KieChat',
+            'name': 'chat',
           },
         },
       ],
@@ -179,7 +179,7 @@ export class SchemaService {
           'item': {
             '@id': this.meta_url,
             'url': this.meta_url,
-            'name': 'Home',
+            'name': 'home',
           },
         },
         {
@@ -188,7 +188,7 @@ export class SchemaService {
           'item': {
             '@id': `${this.meta_url}/link`,
             'url': `${this.meta_url}/link`,
-            'name': 'KieLink',
+            'name': 'link',
           },
         },
       ],
@@ -213,7 +213,7 @@ export class SchemaService {
           'item': {
             '@id': this.meta_url,
             'url': this.meta_url,
-            'name': 'Home',
+            'name': 'home',
           },
         },
         {
@@ -222,7 +222,7 @@ export class SchemaService {
           'item': {
             '@id': `${this.meta_url}/pict`,
             'url': `${this.meta_url}/pict`,
-            'name': 'KiePict',
+            'name': 'pict',
           },
         },
       ],
@@ -247,7 +247,7 @@ export class SchemaService {
           'item': {
             '@id': this.meta_url,
             'url': this.meta_url,
-            'name': 'Home',
+            'name': 'home',
           },
         },
         {
@@ -256,7 +256,41 @@ export class SchemaService {
           'item': {
             '@id': `${this.meta_url}/gpt`,
             'url': `${this.meta_url}/gpt`,
-            'name': 'KieGPT',
+            'name': 'gpt',
+          },
+        },
+      ],
+    },
+  };
+
+  readonly schemaWebPageScan = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    'name': 'KieScan',
+    'url': `${this.meta_url}/scan`,
+    'description': `...`,
+    'image': this.meta_logo,
+    'isPartOf': this.website,
+    'author': this.author,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'item': {
+            '@id': this.meta_url,
+            'url': this.meta_url,
+            'name': 'home',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'item': {
+            '@id': `${this.meta_url}/scan`,
+            'url': `${this.meta_url}/scan`,
+            'name': 'scan',
           },
         },
       ],

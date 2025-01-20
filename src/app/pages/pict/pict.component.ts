@@ -39,7 +39,6 @@ export class PictComponent implements OnInit {
     });
 
     const schema = [
-      this.schemaService.schemaBreadcrumb,
       this.schemaService.schemaWebSite,
       this.schemaService.schemaWebPagePict,
     ];

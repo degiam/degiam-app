@@ -39,7 +39,6 @@ export class LinkComponent implements OnInit {
     });
 
     const schema = [
-      this.schemaService.schemaBreadcrumb,
       this.schemaService.schemaWebSite,
       this.schemaService.schemaWebPageLink,
     ];

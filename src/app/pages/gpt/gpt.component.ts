@@ -39,7 +39,6 @@ export class GptComponent implements OnInit {
     });
 
     const schema = [
-      this.schemaService.schemaBreadcrumb,
       this.schemaService.schemaWebSite,
       this.schemaService.schemaWebPageGpt,
     ];

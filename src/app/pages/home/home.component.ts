@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
     this.configService.updateMetaTags(title, description, url);
 
     const schema = [
-      this.schemaService.schemaBreadcrumb,
       this.schemaService.schemaWebSite,
       this.schemaService.schemaWebPageHome,
     ];

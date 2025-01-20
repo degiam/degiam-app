@@ -40,7 +40,6 @@ export class ChatComponent implements OnInit, OnDestroy {
     });
 
     const schema = [
-      this.schemaService.schemaBreadcrumb,
       this.schemaService.schemaWebSite,
       this.schemaService.schemaWebPageChat,
     ];

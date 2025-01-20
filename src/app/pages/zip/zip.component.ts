@@ -39,7 +39,6 @@ export class ZipComponent implements OnInit {
     });
 
     const schema = [
-      this.schemaService.schemaBreadcrumb,
       this.schemaService.schemaWebSite,
       this.schemaService.schemaWebPageZip,
     ];

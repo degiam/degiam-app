@@ -15,7 +15,7 @@ export class NotFoundComponent implements OnInit {
   constructor(
     private configService: GlobalService,
     private linkService: LinkService,
-        @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     this.image = '/assets/img/warning.png';
   }

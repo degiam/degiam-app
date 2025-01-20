@@ -63,61 +63,6 @@ export class SchemaService {
     },
   };
 
-  readonly schemaBreadcrumb = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    'itemListElement': [
-      {
-        '@type': 'ListItem',
-        'position': 1,
-        'item': {
-          '@id': this.meta_url,
-          'name': 'Home',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        'position': 2,
-        'item': {
-          '@id': `${this.meta_url}/zip`,
-          'name': 'KieZip',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        'position': 3,
-        'item': {
-          '@id': `${this.meta_url}/chat`,
-          'name': 'KieChat',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        'position': 4,
-        'item': {
-          '@id': `${this.meta_url}/link`,
-          'name': 'KieLink',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        'position': 5,
-        'item': {
-          '@id': `${this.meta_url}/pict`,
-          'name': 'KiePict',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        'position': 6,
-        'item': {
-          '@id': `${this.meta_url}/gpt`,
-          'name': 'KieGPT',
-        },
-      },
-    ],
-  };
-
   readonly schemaWebSite = {
     '@context': 'https://schema.org',
     ...this.website,
@@ -132,6 +77,20 @@ export class SchemaService {
     'image': this.meta_logo,
     'isPartOf': this.website,
     'author': this.author,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'item': {
+            '@id': this.meta_url,
+            'url': this.meta_url,
+            'name': 'Home',
+          },
+        },
+      ],
+    },
   };
 
   readonly schemaWebPageZip = {
@@ -143,6 +102,29 @@ export class SchemaService {
     'image': this.meta_logo,
     'isPartOf': this.website,
     'author': this.author,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'item': {
+            '@id': this.meta_url,
+            'url': this.meta_url,
+            'name': 'Home',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'item': {
+            '@id': `${this.meta_url}/zip`,
+            'url': `${this.meta_url}/zip`,
+            'name': 'KieZip',
+          },
+        },
+      ],
+    },
   };
 
   readonly schemaWebPageChat = {
@@ -154,6 +136,29 @@ export class SchemaService {
     'image': this.meta_logo,
     'isPartOf': this.website,
     'author': this.author,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'item': {
+            '@id': this.meta_url,
+            'url': this.meta_url,
+            'name': 'Home',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'item': {
+            '@id': `${this.meta_url}/chat`,
+            'url': `${this.meta_url}/chat`,
+            'name': 'KieChat',
+          },
+        },
+      ],
+    },
   };
 
   readonly schemaWebPageLink = {
@@ -165,6 +170,29 @@ export class SchemaService {
     'image': this.meta_logo,
     'isPartOf': this.website,
     'author': this.author,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'item': {
+            '@id': this.meta_url,
+            'url': this.meta_url,
+            'name': 'Home',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'item': {
+            '@id': `${this.meta_url}/link`,
+            'url': `${this.meta_url}/link`,
+            'name': 'KieLink',
+          },
+        },
+      ],
+    },
   };
 
   readonly schemaWebPagePict = {
@@ -176,6 +204,29 @@ export class SchemaService {
     'image': this.meta_logo,
     'isPartOf': this.website,
     'author': this.author,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'item': {
+            '@id': this.meta_url,
+            'url': this.meta_url,
+            'name': 'Home',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'item': {
+            '@id': `${this.meta_url}/pict`,
+            'url': `${this.meta_url}/pict`,
+            'name': 'KiePict',
+          },
+        },
+      ],
+    },
   };
 
   readonly schemaWebPageGpt = {
@@ -187,6 +238,29 @@ export class SchemaService {
     'image': this.meta_logo,
     'isPartOf': this.website,
     'author': this.author,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'item': {
+            '@id': this.meta_url,
+            'url': this.meta_url,
+            'name': 'Home',
+          },
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'item': {
+            '@id': `${this.meta_url}/gpt`,
+            'url': `${this.meta_url}/gpt`,
+            'name': 'KieGPT',
+          },
+        },
+      ],
+    },
   };
 
   private renderer: Renderer2;

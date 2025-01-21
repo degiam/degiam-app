@@ -57,7 +57,7 @@
           Pict
         </a>
       </li>
-      <li>
+      <li class="sr-only">
         <a
           [routerLink]="'/gpt'"
           [ngClass]="{'active': isActive('/gpt')}"
@@ -66,7 +66,7 @@
           GPT
         </a>
       </li>
-      <li class="sr-only">
+      <!-- <li>
         <button type="button" class="block p-2 mr-2" (click)="toggleDarkMode()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="w-5 h-5">
             <path *ngIf="isDarkMode" d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
@@ -74,7 +74,7 @@
           </svg>
           <span class="sr-only">Dark Mode</span>
         </button>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </header>

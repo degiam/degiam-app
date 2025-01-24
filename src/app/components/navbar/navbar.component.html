@@ -57,10 +57,19 @@
           Pict
         </a>
       </li>
-      <li class="sr-only">
+      <li>
         <a
           [routerLink]="'/gpt'"
           [ngClass]="{'active': isActive('/gpt')}"
+          [class]="classLinkDefault"
+        >
+          GPT
+        </a>
+      </li>
+      <li class="sr-only">
+        <a
+          [routerLink]="'/scan'"
+          [ngClass]="{'active': isActive('/scan')}"
           [class]="classLinkDefault"
         >
           GPT

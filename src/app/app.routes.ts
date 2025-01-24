@@ -6,7 +6,7 @@ import { ChatComponent } from '@pages/chat/chat.component';
 import { LinkComponent } from '@pages/link/link.component';
 import { PictComponent } from '@pages/pict/pict.component';
 import { GptComponent } from '@pages/gpt/gpt.component';
-// import { ScanComponent } from '@pages/scan/scan.component';
+import { ScanComponent } from '@pages/scan/scan.component';
 
 export const routes: Routes = [
   {
@@ -33,10 +33,10 @@ export const routes: Routes = [
     path: 'gpt',
     component: GptComponent,
   },
-  // {
-  //   path: 'scan',
-  //   component: ScanComponent,
-  // },
+  {
+    path: 'scan',
+    component: ScanComponent,
+  },
   {
     path: '**',
     component: NotFoundComponent,

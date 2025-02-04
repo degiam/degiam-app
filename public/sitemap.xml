@@ -30,4 +30,10 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://app.degiam.my.id/gpt</loc>
+    <lastmod>2025-02-05T00:00:00.000Z</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

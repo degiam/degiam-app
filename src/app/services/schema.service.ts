@@ -30,19 +30,12 @@ export class SchemaService {
     '@type': 'WebSite',
     'name': this.meta_name,
     'url': this.meta_url,
-    'publisher': {
-      '@type': 'Person',
-      'name': this.meta_author,
-      'alternateName': this.meta_author_alias,
-      'description': this.meta_author_desc,
-      'image': this.meta_author_image,
-      'url': this.meta_author_url,
-    },
   };
 
   readonly author = {
     '@type': 'Person',
     'name': this.meta_author,
+    'alternateName': this.meta_author_alias,
     'description': this.meta_author_desc,
     'image': this.meta_author_image,
     'url': this.meta_author_url,

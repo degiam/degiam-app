@@ -16,8 +16,8 @@ import { filter } from 'rxjs/operators';
 export class NavbarComponent implements OnInit {
   isDarkMode = false;
   classLink = 'block px-3 sm:px-4 py-2 rounded-full transition lg:hover:bg-zinc-100 [&.active]:pointer-events-none';
-  classLinkDefault = this.classLink + ' dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-500 [&.active]:dark:bg-cyan-600';
-  classLinkHome = this.classLink + ' dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-red-500 [&.active]:dark:bg-red-700 !p-1.5';
+  classLinkDefault = this.classLink + ' dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-cyan-500 dark:[&.active]:bg-cyan-600';
+  classLinkHome = this.classLink + ' dark:lg:hover:bg-slate-800 [&.active]:text-white [&.active]:bg-red-500 dark:[&.active]:bg-red-700 p-1.5!';
 
   constructor(
     private router: Router,

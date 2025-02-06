@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
 import { LinkComponent } from './link.component';
 
 describe('LinkComponent', () => {
@@ -8,7 +8,7 @@ describe('LinkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkComponent]
+      imports: [LinkComponent, CommonModule]
     })
     .compileComponents();
 

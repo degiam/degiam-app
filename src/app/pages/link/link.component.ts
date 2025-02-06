@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 import { GlobalService } from '@/services/global.service';
 import { SchemaService } from '@/services/schema.service';
 import { LoadingService } from '@/services/loading.service';
@@ -14,6 +15,7 @@ export class LinkComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
+  private loadingSubscription: Subscription = new Subscription();
 
   constructor(
     private configService: GlobalService,
@@ -34,9 +36,11 @@ export class LinkComponent implements OnInit {
     this.description = description;
     this.configService.updateMetaTags(title, description, url);
 
-    this.loadingService.isLoading$.subscribe(isLoading => {
-      this.isLoading = isLoading;
-    });
+    this.loadingSubscription.add(
+      this.loadingService.isLoading$.subscribe(isLoading => {
+        this.isLoading = isLoading;
+      })
+    );
 
     const schema = [
       this.schemaService.schemaWebSite,
@@ -47,6 +51,7 @@ export class LinkComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
+    this.loadingSubscription.unsubscribe();
     this.schemaService.removeJsonLd();
   }
 }

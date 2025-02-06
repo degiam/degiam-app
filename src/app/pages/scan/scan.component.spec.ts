@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
 import { ScanComponent } from './scan.component';
 
 describe('ScanComponent', () => {
@@ -8,7 +8,7 @@ describe('ScanComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScanComponent]
+      imports: [ScanComponent, CommonModule]
     })
     .compileComponents();
 

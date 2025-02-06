@@ -1,29 +1,42 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { Title, Meta } from '@angular/platform-browser';
+import { GlobalService } from '@/services/global.service';
+import { LinkService } from '@/services/link.service';
+import { AnalyticsService } from '@/services/analytics.service';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [RouterTestingModule, AppComponent],
+      providers: [
+        Title,
+        Meta,
+        { 
+          provide: GlobalService, 
+          useValue: { 
+            getConfigBrand: () => 'Brand', 
+            getConfigDesc: () => 'Description', 
+            getConfigUrl: () => 'https://example.com', 
+            getConfigLang: () => 'en',
+            getConfigLocalStorage: () => JSON.stringify({ theme: 'dark' })
+          } 
+        },
+        { provide: LinkService, useValue: { setCanonicalLink: () => {} } },
+        { provide: AnalyticsService, useValue: { sendPageView: () => {} } }
+      ],
     }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'degiam' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('degiam');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, degiam');
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

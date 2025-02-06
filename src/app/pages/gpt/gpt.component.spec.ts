@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
 import { GptComponent } from './gpt.component';
 
 describe('GptComponent', () => {
@@ -8,7 +8,7 @@ describe('GptComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GptComponent]
+      imports: [GptComponent, CommonModule]
     })
     .compileComponents();
 

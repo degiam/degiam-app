@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
 import { ChatComponent } from './chat.component';
 
 describe('ChatComponent', () => {
@@ -8,7 +8,7 @@ describe('ChatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChatComponent]
+      imports: [ChatComponent, CommonModule]
     })
     .compileComponents();
 

@@ -15,6 +15,7 @@ export class PictComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
+  appName = 'KiePict';
   private loadingSubscription: Subscription = new Subscription();
 
   constructor(
@@ -25,7 +26,7 @@ export class PictComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Editor Gambar Online yang Serba Bisa - KiePict by ${this.configService.getConfigAuthor()}`,
+      `Editor Gambar Online yang Serba Bisa - ${this.appName} by ${this.configService.getConfigAuthor()}`,
       'Tidak perlu Photoshop! Kamu bisa edit gambar tanpa perlu ribet instal.',
       `${this.configService.getConfigUrl()}/pict`
     );

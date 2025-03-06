@@ -15,6 +15,7 @@ export class ScanComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
+  appName = 'KieScan';
   private loadingSubscription: Subscription = new Subscription();
 
   constructor(
@@ -25,8 +26,8 @@ export class ScanComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Scan Apapun yang Ada Didepanmu - KieScan by ${this.configService.getConfigAuthor()}`,
-      '...',
+      `Scan Apapun yang Ada Didepanmu - ${this.appName} by ${this.configService.getConfigAuthor()}`,
+      'Tak perlu bingung membaca QR Code atau Barcode, bisa dipakai kapan pun dan dimana pun!',
       `${this.configService.getConfigUrl()}/scan`
     );
 

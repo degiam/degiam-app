@@ -15,6 +15,7 @@ export class ZipComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
+  appName = 'KieZip';
   private loadingSubscription: Subscription = new Subscription();
 
   constructor(
@@ -25,7 +26,7 @@ export class ZipComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Zip Apapun, Langsung Jadi! - KieZip by ${this.configService.getConfigAuthor()}`,
+      `Zip Apapun, Langsung Jadi! - ${this.appName} by ${this.configService.getConfigAuthor()}`,
       'Arsipkan file atau folder menjadi file zip dengan mudah dan cepat, tanpa harus instal dulu.',
       `${this.configService.getConfigUrl()}/zip`
     );

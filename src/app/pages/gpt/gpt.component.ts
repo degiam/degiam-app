@@ -15,6 +15,7 @@ export class GptComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
+  appName = 'KieGPT';
   private loadingSubscription: Subscription = new Subscription();
 
   constructor(
@@ -25,7 +26,7 @@ export class GptComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Mau Curhat? Yuk Ngobrol Sama GPT - KieGPT by ${this.configService.getConfigAuthor()}`,
+      `Mau Curhat? Yuk Ngobrol Sama GPT - ${this.appName} by ${this.configService.getConfigAuthor()}`,
       'Dapatkan saran dari GPT AI untuk masalah atau kendala yang kamu hadapi',
       `${this.configService.getConfigUrl()}/gpt`
     );

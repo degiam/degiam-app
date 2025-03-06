@@ -15,6 +15,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   isLoading = true;
   title = '';
   description = '';
+  appName = 'KieChat';
   private loadingSubscription: Subscription = new Subscription();
 
   constructor(
@@ -26,7 +27,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Chat Tanpa Simpan Nomor - KieChat by ${this.configService.getConfigAuthor()}`,
+      `Chat Tanpa Simpan Nomor - ${this.appName} by ${this.configService.getConfigAuthor()}`,
       'Cukup masukkan nomor ponsel atau nama pengguna saja, kamu bisa chat tanpa harus menyimpan kontaknya.',
       `${this.configService.getConfigUrl()}/chat`
     );

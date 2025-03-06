@@ -15,6 +15,7 @@ export class LinkComponent implements OnInit {
   isLoading = true;
   title = '';
   description = '';
+  appName = 'KieLink';
   private loadingSubscription: Subscription = new Subscription();
 
   constructor(
@@ -25,7 +26,7 @@ export class LinkComponent implements OnInit {
 
   ngOnInit(): void {
     this.configService.setPageMeta(
-      `Singkat Tautan Biar Gak Ribet - KieLink by ${this.configService.getConfigAuthor()}`,
+      `Singkat Tautan Biar Gak Ribet - ${this.appName} by ${this.configService.getConfigAuthor()}`,
       'Persingkat URL dan generate QR Code dari tautan agar mudah dibagikan',
       `${this.configService.getConfigUrl()}/link`
     );
